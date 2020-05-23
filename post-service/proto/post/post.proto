@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package post; 
+option go_package = ".;post";
+
+
+service PostService {
+    rpc CreatePost(Post) returns (Response) {}
+    rpc GetPosts(GetRequest) returns(Response){}
+}
+
+message Post {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string picture = 4;
+    string author_id = 5;
+}
+  
+message Response {
+    bool created = 1;
+    Post post = 2;
+    // Added a pluralised post to our generic response message
+    repeated Post posts = 3;
+}
+message GetRequest {}
+
+  
