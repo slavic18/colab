@@ -32,7 +32,7 @@ func main() {
 	service := micro.NewService(micro.Name("colab.service.cli"))
 	service.Init()
 	// Set up a connection to the server.
-	client := pb.NewPostServiceClient("colab.post.service", service.Client())
+	client := pb.NewPostService("colab.service.post", service.Client())
 
 	// Contact the server and print out its response.
 	file := defaultFilename

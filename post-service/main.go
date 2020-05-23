@@ -11,10 +11,6 @@ import (
 	"github.com/micro/go-micro/v2"
 )
 
-const (
-	port = ":50051"
-)
-
 type repository interface {
 	Create(*pb.Post) (*pb.Post, error)
 	GetAll() []*pb.Post
